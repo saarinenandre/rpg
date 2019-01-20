@@ -14,16 +14,26 @@ items = ["nothing", "a stick","a spoon","a leaf", "water","a snail","a mug","a s
 
 enemy = ['wolf','bear','ålänning','guy from Geta','fish','robot','dog','angry human','spider','snail','bird','manbearpig','sysadmin']
 
-class Player:
-    def __init__(self, hp, attack):
+class Person:
+    
+    def __init__(self,hp,attack):
         self.hp = hp
         self.attack = attack
-        self.alive = True
         
     def getInfo(self):
         print('Stats:\nHP:',self.hp,'\nAttack:',self.attack)
+
+class Player(Person):
+    def __init__(self, hp, attack, name):
+        Person.__init__(self,hp,attack)
+        self.name = name
+        self.alive = True
+    
+    def getInfo(self):
+        print('Name:',self.name)
+        super().getInfo()
         
-char = Player(10,100)
+char = Player(10,100,'Gubb')
 
 while char.alive:
     choose = int(input('What to do?\n1: Show stats\n2: Go left\n3: Go right\n4: Kill player\n>'))
