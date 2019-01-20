@@ -39,3 +39,5 @@ while char.alive:
         
     elif choose==4:
         char.alive = False
+        
+print('You died. Game over')
